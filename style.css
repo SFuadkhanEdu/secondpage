@@ -79,6 +79,9 @@ h4 {
   .stylish_portfoli {
     height: 50vh;
   }
+  .cards{
+    padding: 0 10px !important;
+  }
 }
 
 .what_we_offer {
@@ -101,13 +104,6 @@ h4 {
 }
 .what_we_offer button:hover {
   background-color: #424649;
-}
-
-@media (min-width: 1200px) {
-  h2,
-  .h2 {
-    font-size: 2rem;
-  }
 }
 
 .services {
@@ -220,25 +216,50 @@ h2 {
 .item:first-child {
   background-image: url(./assets/portfolio-1.jpg);
   background-repeat: no-repeat;
+  background-position: center;
 }
 .item:nth-child(2) {
   background-image: url(./assets/portfolio-2.jpg);
+  background-position: center;
 }
 .item:nth-child(3) {
   background-image: url(./assets/portfolio-3.jpg);
+  background-position: center;
 }
 .item:nth-child(4) {
   background-image: url(./assets/portfolio-4.jpg);
+  background-position: center;
 }
-
+.item{
+  position: relative;
+}
+.hidden{
+  margin: 0 !important;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
+  background-color: aqua;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+.item:hover{
+  transform: scale(80%);
+}
+.item:hover .hidden{
+  opacity: 0.8;
+}
 .porfolio_recent .cards {
   justify-content: center;
   padding: 0 48px;
   flex-wrap: wrap;
+  gap: 20px;
 }
 .porfolio_recent .item {
   flex-direction: column;
-  width: 43%;
+  width: calc(50% - 30px);
   height: 31vh;
   color: white;
   justify-content: end;
@@ -315,4 +336,13 @@ footer button {
 }
 footer button:hover {
   background-color: #17667f;
+}
+@media (max-width: 1200px) {
+  h2,
+  .h2 {
+    font-size: 2rem;
+  }
+  .item{
+    width: 62% !important;
+  }
 }
